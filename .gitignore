@@ -1,0 +1,10 @@
+backend/.venv
+backend/__pycache__
+backend/Clause_Seg/__pycache__
+backend/Clause_Seg/bert-base-uncased
+/backend/Clause_Seg/clause_segmentation_model_best.pt
+backend/LLM
+backend/mem_ranker/__pycache__
+backend/mem_ranker/all_mpnet_base_v2
+backend/mem_ranker/models
+backend/mem_ranker/memory_ranker_model_best.pt

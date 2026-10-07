@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Project Demo - File Upload</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <div class="upload-container">
+        <div class="upload-box" id="dropZone">
+            <p>Drag & drop a text file here</p>
+            <p>or</p>
+
+            <label for="fileInput" class="upload-button">
+                Choose File
+            </label>
+
+            <input type="file" id="fileInput" accept=".txt,text/plain" hidden>
+            <p id="uploadStatus" role="status"></p>
+        </div>
+    </div>
+    <script src="upload.js"></script>
+</body>
+</html>

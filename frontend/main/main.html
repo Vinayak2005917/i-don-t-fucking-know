@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Uploaded text</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<main class="editor-shell">
+		<header class="editor-header">
+			<div class="document-heading">
+				<h1 id="fileName">Uploaded text</h1>
+			</div>
+			<div class="document-stats" aria-label="Document statistics">
+				<div class="stat">
+					<span class="stat-label">Clauses</span>
+					<strong id="clauseCount">0</strong>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Avg. length</span>
+					<strong id="averageClauseLength">0 words</strong>
+				</div>
+				<button id="rankButton" class="rank-button" type="button" disabled>Rank memory</button>
+								<button id="panelToggle" class="panel-toggle" type="button" aria-expanded="false" aria-controls="statsPanel">
+					<span aria-hidden="true">&#9776;</span> Stats
+				</button>
+			</div>
+		</header>
+		<div class="workspace-body">
+			<section class="editor-panel" aria-label="Uploaded document text">
+				<div id="fileText" class="clause-list">
+					<p class="empty-state">No file has been uploaded yet.</p>
+				</div>
+			</section>
+			<aside id="clausePanel" class="clause-panel" aria-label="Selected clause details" hidden>
+				<div class="panel-heading">
+					<div>
+						<p class="panel-kicker">Clause detail</p>
+						<h2 id="clausePanelTitle">No clause selected</h2>
+					</div>
+					<button id="clausePanelClose" class="panel-close" type="button" aria-label="Close clause details">&times;</button>
+				</div>
+				<div class="clause-panel-body">
+					<div class="clause-meta">
+						<div class="clause-meta-item">
+							<span>Score</span>
+							<strong id="clauseScore">--</strong>
+						</div>
+						<div class="clause-meta-item">
+							<span>Words</span>
+							<strong id="clauseWords">--</strong>
+						</div>
+					</div>
+					<section class="clause-block">
+											<h3>Clause <span class="clause-editable-hint">editable</span></h3>
+											<textarea id="clauseTarget" class="clause-text clause-input" rows="3" spellcheck="true" aria-label="Clause to improve"></textarea>
+					</section>
+					<section class="clause-block">
+						<h3>Surrounding context</h3>
+						<ol id="clauseContext" class="clause-context"></ol>
+					</section>
+					<section id="improvedBlock" class="clause-block" hidden>
+						<h3>Improved clause</h3>
+						<p id="clauseImproved" class="clause-text clause-text-improved">--</p>
+						<div id="improvedScoreRow" class="clause-meta-item clause-meta-single">
+							<span>New score</span>
+							<strong id="clauseImprovedScore">--</strong>
+						</div>
+					</section>
+					<div class="clause-actions">
+						<button id="rewriteButton" class="improve-button" type="button">Improve this clause</button>
+						<p id="rewriteStatus" class="rewrite-status" role="status" aria-live="polite"></p>
+					</div>
+				</div>
+			</aside>
+			<aside id="statsPanel" class="stats-panel" aria-label="Memory ranking statistics" hidden>
+				<div id="panelResizeHandle" class="panel-resize-handle" role="separator" aria-label="Resize statistics panel" aria-orientation="vertical" tabindex="0"></div>
+				<div class="panel-heading">
+					<div>
+						<p class="panel-kicker">Memory profile</p>
+						<h2>Score over clauses</h2>
+					</div>
+					<button id="panelClose" class="panel-close" type="button" aria-label="Close statistics panel">&times;</button>
+				</div>
+				<div class="chart-wrap">
+					<canvas id="scoreChart" aria-label="Memory score over clauses"></canvas>
+					<p id="chartEmpty" class="chart-empty">Rank the document to see the score curve.</p>
+				</div>
+				<div class="distribution-heading">
+					<h3>Score distribution</h3>
+					<span>Clauses per range</span>
+				</div>
+				<div class="histogram-wrap">
+					<canvas id="scoreHistogram" aria-label="Histogram showing how many clauses fall into each memory score range"></canvas>
+				</div>
+				<div class="distribution-heading scatter-heading">
+					<h3>Clause length vs memory score</h3>
+					<span>Words per clause</span>
+				</div>
+				<div class="scatter-wrap">
+					<canvas id="lengthScoreScatter" aria-label="Scatter plot comparing clause length in words with memory score"></canvas>
+				</div>
+				<div class="panel-stats">
+					<div><span>Average</span><strong id="scoreAverage">--</strong></div>
+					<div><span>Highest</span><strong id="scoreHighest">--</strong></div>
+					<div><span>Lowest</span><strong id="scoreLowest">--</strong></div>
+				</div>
+			</aside>
+		</div>
+	</main>
+	<script src="main.js"></script>
+</body>
+</html>

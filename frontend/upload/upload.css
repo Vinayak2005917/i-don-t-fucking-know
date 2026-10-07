@@ -1,0 +1,38 @@
+.upload-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-box {
+    width: 500px;
+    height: 250px;
+
+    border: 2px dashed #888;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.upload-button {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.upload-box.dragover {
+    border-color: black;
+    background: #f5f5f5;
+}
+
+#uploadStatus {
+    min-height: 1.25em;
+    color: #b42318;
+}
